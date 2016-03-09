@@ -137,28 +137,20 @@ public class App
 
     }
 
-
-
     public static void main( String[] args )
     {
         String resultat1 ="XXXXXXXXXXXX";
         String resultat2="9_9_9_9_9_9_9_9_9_9_";
         String resultat3="5/5/5/5/5/5/5/5/5/5/5";
+        String resultat4="1234567891";
 
 
 
-
-
+        System.out.println("normalement 46 : " + calculerResultat(resultat4));
         System.out.println("normalement 150 : " + calculerResultat(resultat3));
         System.out.println("normalement 90 : " + calculerResultat(resultat2));
-        System.out.println("normalement 300 : " + calculerResultat(resultat1));
-
-
-
 
     }
-
-
 
 
 
