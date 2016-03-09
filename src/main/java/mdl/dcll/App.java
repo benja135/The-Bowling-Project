@@ -12,7 +12,7 @@ public class App
 
         String fullStike = "XXXXXXXXXXXX";
         String nineZero = "9_9_9_9_9_9_9_9_9_9_";
-        String fullSpare = "5/5/5/5/5/5/5/5/5/5/";
+        String fullSpare = "5/5/5/5/5/5/5/5/5/5/5/";
 
         System.out.println(sequenceIsCorrect(fullStike));
 
@@ -80,7 +80,10 @@ public class App
             }
         }
 
-        // TODO traiter le cas où on a joué moins que ce qu'il fallait
+        if (numJeu <= maxNumJeu || (numJeu == maxNumJeu && !strike && numLance != 2)) {
+            System.out.println("Il reste des coups à jouer.");
+            return false;
+        }
 
         return true;
     }
