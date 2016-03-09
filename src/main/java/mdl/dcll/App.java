@@ -6,12 +6,17 @@ package mdl.dcll;
  */
 public class App
 {
-    
+
     public static void main( String[] args ) {
         String resultat1 ="XXXXXXXXXXXX";
         String resultat2="9_9_9_9_9_9_9_9_9_9_";
         String resultat3="5/5/5/5/5/5/5/5/5/5/5";
         String resultat4="1234567891";
+
+        System.out.println(sequenceIsCorrect(resultat1));
+        System.out.println(sequenceIsCorrect(resultat2));
+        System.out.println(sequenceIsCorrect(resultat3));
+        System.out.println(sequenceIsCorrect(resultat4));
 
         System.out.println("normalement 46 : " + calculerResultat(resultat4));
         System.out.println("normalement 150 : " + calculerResultat(resultat3));
@@ -19,7 +24,11 @@ public class App
     }
 
 
-    // retourne le score de la partie passé en paramètre
+    /**
+     * Retourne le score de la partie passé en paramètre
+     * @param res
+     * @return
+     */
     public static int calculerResultat(String res)
     {
         int score = 0;
@@ -31,18 +40,18 @@ public class App
 
         for (int i=0; i< res.length(); i++) {
 
-            if (res.charAt(i) == '/') { //si spare
+            if (res.charAt(i) == '/') { // si spare
                 bonus = 10;
                 spare = true;
             }
 
-            if (res.charAt(i) == '_'){ // si aucune boule touché
+            if (res.charAt(i) == '_') { // si aucune boule touché
                 rienTouche = true;
             }
 
             // a implenté : aucune boule touché au premier lancé
-            if (i%2 == 0){ //tous les premiers pair
-                if (spare){
+            if (i%2 == 0) { //tous les premiers pair
+                if (spare) {
                     score += bonus;
                     score += res.charAt(i)-'0';
                     spare = false;
@@ -56,7 +65,7 @@ public class App
                     scoreAvalider = res.charAt(i)-'0';
                 }
             }
-            else { //tous les coups impair
+            else { // tous les coups impair
                 if (!spare) {
                     if (rienTouche) {
                         score += scoreAvalider;
