@@ -4,21 +4,93 @@ package mdl.dcll;
  * Hello world!
  *
  */
-public class App 
+public class App
 {
+
+    // retourne le score de la partie passé en paramètre
+    public static int calculerResultat(String res){
+        int score = 0;
+        int bonus=0;
+        int scoreAvalider =0;
+        boolean spare = false;
+        boolean strike = false;
+        boolean rienTouche = false;
+
+        for (int i=0; i< res.length(); i++) {
+
+            if(res.charAt(i) == '/') { //si spare
+                bonus = 10;
+                spare = true;
+            }
+
+            if(res.charAt(i) == '_'){ // si aucune boule touché
+                rienTouche = true;
+            }
+
+
+
+// a implenté : aucune boule touché au premier lancé
+            if(i%2 == 0){ //tous les premiers pair
+                if(spare){
+                    score += bonus;
+                    score += res.charAt(i)-'0';
+                    spare = false;
+                    bonus = 0;
+                }
+                else if(rienTouche) {
+                    scoreAvalider = 0;
+                    rienTouche = false;
+                }
+                else{
+
+                    scoreAvalider = res.charAt(i)-'0';
+                }
+
+            }
+            else{ //tous les coups impair
+
+
+
+                if(!spare){
+
+                    if(rienTouche){
+                        score += scoreAvalider;
+                        scoreAvalider = 0;
+                        rienTouche = false;
+                    }
+                    else{
+                        score += scoreAvalider;
+                        score += res.charAt(i)-'0';
+                        scoreAvalider =0;
+                    }
+
+
+                }
+                else{
+
+                    scoreAvalider = 0;
+                }
+            }
+
+        }
+        return score;
+
+    }
+
     public static void main( String[] args )
     {
-        System.out.println( "The Bowling Project !" );
+        String resultat1 ="XXXXXXXXXXXX";
+        String resultat2="9_9_9_9_9_9_9_9_9_9_";
+        String resultat3="5/5/5/5/5/5/5/5/5/5/5";
+        String resultat4="1234567891";
 
-        String fullStike = "XXXXXXXXXXXX";
-        String nineZero = "9_9_9_9_9_9_9_9_9_9_";
-        String fullSpare = "5/5/5/5/5/5/5/5/5/5/5";
 
-        System.out.println(sequenceIsCorrect(fullStike));
 
-        System.out.println(sequenceIsCorrect(nineZero));
+        System.out.println("normalement 46 : " + calculerResultat(resultat4));
+        System.out.println("normalement 150 : " + calculerResultat(resultat3));
+        System.out.println("normalement 90 : " + calculerResultat(resultat2));
 
-        System.out.println(sequenceIsCorrect(fullSpare));
+
 
     }
 
