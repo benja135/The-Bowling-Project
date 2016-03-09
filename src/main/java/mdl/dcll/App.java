@@ -12,7 +12,7 @@ public class App
 
         String fullStike = "XXXXXXXXXXXX";
         String nineZero = "9_9_9_9_9_9_9_9_9_9_";
-        String fullSpare = "5/5/5/5/5/5/5/5/5/5/5/";
+        String fullSpare = "5/5/5/5/5/5/5/5/5/5/5";
 
         System.out.println(sequenceIsCorrect(fullStike));
 
@@ -22,6 +22,11 @@ public class App
 
     }
 
+    /**
+     * Retourne si oui ou non une séquence de point bowling est valide.
+     * @param sequence séquence de points d'une partone
+     * @return true si la séquence est valide
+     */
     public static boolean sequenceIsCorrect(String sequence) {
 
         System.out.println("Vérification de la séquence");
@@ -31,16 +36,11 @@ public class App
 
         boolean strike = false;
         boolean spare = false;
-        int numJeu = 1;
+        int jeuJoue = 0;
         int numLance = 1;
         int maxNumJeu = 10;
 
         for (int lanceTotal = 0; lanceTotal < sequence.length(); lanceTotal++) {
-
-            if (numJeu > maxNumJeu) {
-                System.out.println("Erreur, trop de jeu jouer petit cheater.");
-                return false;
-            }
 
             strike = false;
             spare = false;
@@ -49,7 +49,7 @@ public class App
             if (numLance == 1) {
                 if (acceptedChars1.contains(lance)) {
                     if (lance.compareTo("X") == 0) {
-                        numJeu++;
+                        jeuJoue++;
                         numLance = 1;
                         strike = true;
                     } else {
@@ -61,7 +61,7 @@ public class App
                 }
             } else { // numLance == 2
                 if (acceptedChars2.contains(lance)) {
-                    numJeu++;
+                    jeuJoue++;
                     numLance = 1;
                     if (lance.compareTo("/") == 0) {
                         spare = true;
@@ -72,15 +72,35 @@ public class App
                 }
             }
 
-            if ((numJeu == 9 && strike) || (numJeu == 10 && spare)) {
-                maxNumJeu = 11;
+            // TODO c'est dégueulasse de faire ça. Arriver en master pour faire ça sérieux ! Je me dégoute.
+            if (jeuJoue == 10) {
+               if (spare) {
+                    // rejouer une boule
+                   if (lanceTotal+1+1 != sequence.length()) {
+                       System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
+                       return false;
+                   }
+                   if (!acceptedChars1.contains(sequence.substring(lanceTotal+1, lanceTotal+2))) {
+                       System.out.println("Erreur, caractére inconnu ou mal placé.");
+                       return false;
+                   }
+               } else if (strike) {
+                   // rejouer 2 boules
+                   if (lanceTotal+2+1 != sequence.length()) {
+                       System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
+                       return false;
+                   }
+                   if (!acceptedChars1.contains(sequence.substring(lanceTotal+1, lanceTotal+2))
+                           || !acceptedChars2.contains(sequence.substring(lanceTotal+2, lanceTotal+3))) {
+                       System.out.println("Erreur, caractére inconnu ou mal placé.");
+                       return false;
+                   }
+               }
             }
-            if ((numJeu == 10 && strike)) {
-                maxNumJeu = 12;
-            }
+
         }
 
-        if (numJeu <= maxNumJeu || (numJeu == maxNumJeu && !strike && numLance != 2)) {
+        if (jeuJoue < maxNumJeu) {
             System.out.println("Il reste des coups à jouer.");
             return false;
         }
