@@ -6,9 +6,22 @@ package mdl.dcll;
  */
 public class App
 {
+    
+    public static void main( String[] args ) {
+        String resultat1 ="XXXXXXXXXXXX";
+        String resultat2="9_9_9_9_9_9_9_9_9_9_";
+        String resultat3="5/5/5/5/5/5/5/5/5/5/5";
+        String resultat4="1234567891";
+
+        System.out.println("normalement 46 : " + calculerResultat(resultat4));
+        System.out.println("normalement 150 : " + calculerResultat(resultat3));
+        System.out.println("normalement 90 : " + calculerResultat(resultat2));
+    }
+
 
     // retourne le score de la partie passé en paramètre
-    public static int calculerResultat(String res){
+    public static int calculerResultat(String res)
+    {
         int score = 0;
         int bonus=0;
         int scoreAvalider =0;
@@ -18,81 +31,51 @@ public class App
 
         for (int i=0; i< res.length(); i++) {
 
-            if(res.charAt(i) == '/') { //si spare
+            if (res.charAt(i) == '/') { //si spare
                 bonus = 10;
                 spare = true;
             }
 
-            if(res.charAt(i) == '_'){ // si aucune boule touché
+            if (res.charAt(i) == '_'){ // si aucune boule touché
                 rienTouche = true;
             }
 
-
-
-// a implenté : aucune boule touché au premier lancé
-            if(i%2 == 0){ //tous les premiers pair
-                if(spare){
+            // a implenté : aucune boule touché au premier lancé
+            if (i%2 == 0){ //tous les premiers pair
+                if (spare){
                     score += bonus;
                     score += res.charAt(i)-'0';
                     spare = false;
                     bonus = 0;
                 }
-                else if(rienTouche) {
+                else if (rienTouche) {
                     scoreAvalider = 0;
                     rienTouche = false;
                 }
-                else{
-
+                else {
                     scoreAvalider = res.charAt(i)-'0';
                 }
-
             }
-            else{ //tous les coups impair
-
-
-
-                if(!spare){
-
-                    if(rienTouche){
+            else { //tous les coups impair
+                if (!spare) {
+                    if (rienTouche) {
                         score += scoreAvalider;
                         scoreAvalider = 0;
                         rienTouche = false;
-                    }
-                    else{
+                    } else {
                         score += scoreAvalider;
                         score += res.charAt(i)-'0';
-                        scoreAvalider =0;
+                        scoreAvalider = 0;
                     }
-
-
                 }
-                else{
-
+                else {
                     scoreAvalider = 0;
                 }
             }
-
         }
         return score;
-
     }
 
-    public static void main( String[] args )
-    {
-        String resultat1 ="XXXXXXXXXXXX";
-        String resultat2="9_9_9_9_9_9_9_9_9_9_";
-        String resultat3="5/5/5/5/5/5/5/5/5/5/5";
-        String resultat4="1234567891";
-
-
-
-        System.out.println("normalement 46 : " + calculerResultat(resultat4));
-        System.out.println("normalement 150 : " + calculerResultat(resultat3));
-        System.out.println("normalement 90 : " + calculerResultat(resultat2));
-
-
-
-    }
 
     /**
      * Retourne si oui ou non une séquence de point bowling est valide.
