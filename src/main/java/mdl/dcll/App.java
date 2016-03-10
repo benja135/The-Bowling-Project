@@ -1,7 +1,12 @@
 package mdl.dcll;
 
+import mdl.dcll.types.CoupAdditionnel;
+import mdl.dcll.types.Frame;
+import mdl.dcll.types.Spare;
+import mdl.dcll.types.Strike;
+
 /**
- * Hello world!
+ * The Bowling Project
  *
  */
 public class App
@@ -13,12 +18,24 @@ public class App
         String resultat3="5/5/5/5/5/5/5/5/5/5/5";
         String resultat4="1234567891";
 
-        System.out.println(sequenceIsCorrect(resultat1));
-        System.out.println(sequenceIsCorrect(resultat2));
-        System.out.println(sequenceIsCorrect(resultat3));
-        System.out.println(sequenceIsCorrect(resultat4));
+        Game game = new Game();
+        System.out.println("Séquence correcte : " + game.build(resultat1));
+        game.afficher();
+        System.out.println();
 
-        System.out.println("normalement 46 : " + calculerResultat(resultat4));
+        System.out.println("Séquence correcte : " + game.build(resultat2));
+        game.afficher();
+        System.out.println();
+
+        System.out.println("Séquence correcte : " + game.build(resultat3));
+        game.afficher();
+        System.out.println();
+
+        System.out.println("Séquence correcte : " + game.build(resultat4));
+        game.afficher();
+        System.out.println();
+
+        System.out.println("\n\nnormalement 46 : " + calculerResultat(resultat4));
         System.out.println("normalement 150 : " + calculerResultat(resultat3));
         System.out.println("normalement 90 : " + calculerResultat(resultat2));
     }
@@ -86,90 +103,6 @@ public class App
     }
 
 
-    /**
-     * Retourne si oui ou non une séquence de point bowling est valide.
-     * @param sequence séquence de points d'une partone
-     * @return true si la séquence est valide
-     */
-    public static boolean sequenceIsCorrect(String sequence) {
 
-        System.out.println("Vérification de la séquence");
-
-        String acceptedChars1 = "_123456789X";
-        String acceptedChars2 = acceptedChars1 + "/";
-
-        boolean strike = false;
-        boolean spare = false;
-        int jeuJoue = 0;
-        int numLance = 1;
-        int maxNumJeu = 10;
-
-        for (int lanceTotal = 0; lanceTotal < sequence.length(); lanceTotal++) {
-
-            strike = false;
-            spare = false;
-            String lance = (String) sequence.substring(lanceTotal, lanceTotal+1);
-
-            if (numLance == 1) {
-                if (acceptedChars1.contains(lance)) {
-                    if (lance.compareTo("X") == 0) {
-                        jeuJoue++;
-                        numLance = 1;
-                        strike = true;
-                    } else {
-                        numLance++;
-                    }
-                } else {
-                    System.out.println("Erreur, caractére " + lance + " inconnu ou mal placé.");
-                    return false;
-                }
-            } else { // numLance == 2
-                if (acceptedChars2.contains(lance)) {
-                    jeuJoue++;
-                    numLance = 1;
-                    if (lance.compareTo("/") == 0) {
-                        spare = true;
-                    }
-                } else {
-                    System.out.println("Erreur, caractére " + lance + " inconnu.");
-                    return false;
-                }
-            }
-
-            // TODO c'est dégueulasse de faire ça. Arriver en master pour faire ça sérieux ! Je me dégoute.
-            if (jeuJoue == 10) {
-               if (spare) {
-                    // rejouer une boule
-                   if (lanceTotal+1+1 != sequence.length()) {
-                       System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
-                       return false;
-                   }
-                   if (!acceptedChars1.contains(sequence.substring(lanceTotal+1, lanceTotal+2))) {
-                       System.out.println("Erreur, caractére inconnu ou mal placé.");
-                       return false;
-                   }
-               } else if (strike) {
-                   // rejouer 2 boules
-                   if (lanceTotal+2+1 != sequence.length()) {
-                       System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
-                       return false;
-                   }
-                   if (!acceptedChars1.contains(sequence.substring(lanceTotal+1, lanceTotal+2))
-                           || !acceptedChars2.contains(sequence.substring(lanceTotal+2, lanceTotal+3))) {
-                       System.out.println("Erreur, caractére inconnu ou mal placé.");
-                       return false;
-                   }
-               }
-            }
-
-        }
-
-        if (jeuJoue < maxNumJeu) {
-            System.out.println("Il reste des coups à jouer.");
-            return false;
-        }
-
-        return true;
-    }
 
 }
