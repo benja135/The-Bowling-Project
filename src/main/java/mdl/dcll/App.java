@@ -1,10 +1,5 @@
 package mdl.dcll;
 
-import mdl.dcll.types.CoupAdditionnel;
-import mdl.dcll.types.Frame;
-import mdl.dcll.types.Spare;
-import mdl.dcll.types.Strike;
-
 /**
  * The Bowling Project
  *
@@ -12,7 +7,8 @@ import mdl.dcll.types.Strike;
 public class App
 {
 
-    public static void main( String[] args ) {
+    public static void main( String[] args )
+    {
         String resultat1 ="XXXXXXXXXXXX";
         String resultat2="9_9_9_9_9_9_9_9_9_9_";
         String resultat3="5/5/5/5/5/5/5/5/5/5/5";
@@ -41,23 +37,24 @@ public class App
     }
 
 
-    /**
-     * Retourne le score de la partie passé en paramètre
-     * @param res
-     * @return
-     */
-    public static int calculerResultat(String res)
-    {
+    public static void initialiseStrike(int[][] tableau,int nbstrike) {
+        tableau[nbstrike][0] = 0; // doit atteindre 2 pour arreter le strike
+        tableau[nbstrike][1] = 10; // score total du strike 10 de départ car bonus de 10
+    }
+
+    // retourne le score de la partie passé en paramètre
+    public static int calculerResultat(String res){
         int score = 0;
         int bonus=0;
         int scoreAvalider =0;
         boolean spare = false;
         boolean strike = false;
         boolean rienTouche = false;
+        int coupStrike = 2;
 
         for (int i=0; i< res.length(); i++) {
 
-            if (res.charAt(i) == '/') { // si spare
+            if (res.charAt(i) == '/') { //si spare
                 bonus = 10;
                 spare = true;
             }
@@ -66,23 +63,34 @@ public class App
                 rienTouche = true;
             }
 
-            // a implenté : aucune boule touché au premier lancé
+            if (res.charAt(i) == 'X') {
+                bonus = 10;
+                strike = true;
+            }
+
+            //TODO à implenter : aucune boule touché au premier lancé
             if (i%2 == 0) { //tous les premiers pair
-                if (spare) {
+
+                if (spare) { // si spare
                     score += bonus;
                     score += res.charAt(i)-'0';
                     spare = false;
                     bonus = 0;
                 }
-                else if (rienTouche) {
+                else if (rienTouche) { //si pas de boule touché
                     scoreAvalider = 0;
                     rienTouche = false;
                 }
+                else if (strike) { // si strike
+                    scoreAvalider += bonus;
+                }
                 else {
+
                     scoreAvalider = res.charAt(i)-'0';
                 }
-            }
-            else { // tous les coups impair
+
+            } else { //tous les coups impair
+
                 if (!spare) {
                     if (rienTouche) {
                         score += scoreAvalider;
@@ -91,18 +99,45 @@ public class App
                     } else {
                         score += scoreAvalider;
                         score += res.charAt(i)-'0';
-                        scoreAvalider = 0;
+                        scoreAvalider =0;
                     }
-                }
-                else {
+                } else {
                     scoreAvalider = 0;
                 }
             }
+
         }
+
+        //************************************************//
+        //strike:
+
+        int[][] tab = new int [10][10];
+
+        int nbstrike=0;
+
+        if(strike){
+            nbstrike++;
+            initialiseStrike(tab,nbstrike);
+
+            for(int i=0; i< nbstrike;i++) {
+                tab[nbstrike][0]++;
+
+                if (tab[nbstrike][0] < 3) {
+
+                    if (res.charAt(i) == '/' || res.charAt(i) == 'X') {
+                        tab[nbstrike][1] += 10;
+                    }
+                    else if(res.charAt(i) == '/'){
+                        tab[nbstrike][1] += 0;
+                    }
+                    else{
+                        tab[nbstrike][1] += res.charAt(i)-'0';
+                    }
+                }
+            }
+        }
+        ///***********************************************//
         return score;
     }
-
-
-
 
 }
