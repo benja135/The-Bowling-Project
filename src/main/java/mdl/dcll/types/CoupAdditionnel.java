@@ -4,6 +4,7 @@ import mdl.dcll.types.Frame;
 
 /**
  * Created by benja135 on 09/03/16.
+ * Un CoupAdditionnel est le type de coup joué aprés la Frame 10
  */
 public class CoupAdditionnel extends Frame {
 

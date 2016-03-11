@@ -2,6 +2,7 @@ package mdl.dcll.types;
 
 /**
  * Created by benja135 on 09/03/16.
+ * Une frame est un "jeu" classique. càd un tour de 2 lancés (ni strike ni spare)
  */
 public class Frame {
 

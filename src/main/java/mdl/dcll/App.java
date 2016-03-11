@@ -37,12 +37,10 @@ public class App
     }
 
 
-    public static void initialiseStrike(int[][] tableau,int nbstrike) {
-        tableau[nbstrike][0] = 0; // doit atteindre 2 pour arreter le strike
-        tableau[nbstrike][1] = 10; // score total du strike 10 de départ car bonus de 10
-    }
-
-    // retourne le score de la partie passé en paramètre
+    /**
+     * retourne le score de la partie passé en paramètre
+     * TODO implémenté ça dans Game.computeScore()
+      */
     public static int calculerResultat(String res){
         int score = 0;
         int bonus=0;
@@ -68,7 +66,7 @@ public class App
                 strike = true;
             }
 
-            //TODO à implenter : aucune boule touché au premier lancé
+            // TODO à implenter : aucune boule touché au premier lancé
             if (i%2 == 0) { //tous les premiers pair
 
                 if (spare) { // si spare
@@ -138,6 +136,15 @@ public class App
         }
         ///***********************************************//
         return score;
+    }
+
+
+    /**
+     * TODO implémenté ça dans Game.computeScore()
+     */
+    public static void initialiseStrike(int[][] tableau,int nbstrike) {
+        tableau[nbstrike][0] = 0; // doit atteindre 2 pour arreter le strike
+        tableau[nbstrike][1] = 10; // score total du strike 10 de départ car bonus de 10
     }
 
 }
