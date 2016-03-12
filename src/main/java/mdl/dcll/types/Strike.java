@@ -12,6 +12,10 @@ public class Strike extends Frame {
     public int score() {
         return 10;
     }
+
+    public int score_c1() {
+        return 10;
+    }
     
     public boolean isValid() {
         return true;

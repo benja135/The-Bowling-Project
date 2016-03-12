@@ -18,6 +18,10 @@ public class CoupAdditionnel extends Frame {
         return c;
     }
 
+    public int score_c1() {
+        return c;
+    }
+
     public boolean isValid() {
         return c >= 0 && c <= 10;
     }
