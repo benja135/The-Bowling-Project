@@ -9,28 +9,25 @@ public class App
 
     public static void main( String[] args )
     {
-        String resultat1 ="XXXXXXXXXXXX";
-        String resultat2="9_9_9_9_9_9_9_9_9_9_";
-        String resultat3="5/5/5/5/5/5/5/5/5/5/5";
-        String resultat4="1234567891";
+        String resultat1 ="XXXXXXXXXXXX";           // 300
+        String resultat2="9_9_9_9_9_9_9_9_9_9_";    // 90
+        String resultat3="5/5/5/5/5/5/5/5/5/5/5";   // 150
+        String resultat4="6/8/4/9/XXX8/1/6/X";      // 196
 
         Game game = new Game();
-        System.out.println("Séquence correcte : " + game.build(resultat1));
+        System.out.println(game.build(resultat1));
         game.afficher();
-        System.out.println("normalement 300 : " + game.computeScore());
         System.out.println();
 
-        System.out.println("Séquence correcte : " + game.build(resultat2));
+        System.out.println(game.build(resultat2));
         game.afficher();
-        System.out.println("normalement 90 : " + game.computeScore());
         System.out.println();
 
-        System.out.println("Séquence correcte : " + game.build(resultat3));
+        System.out.println(game.build(resultat3));
         game.afficher();
-        System.out.println("normalement 150 : " + game.computeScore());
         System.out.println();
 
-        System.out.println("Séquence correcte : " + game.build(resultat4));
+        System.out.println(game.build(resultat4));
         game.afficher();
         System.out.println();
     }

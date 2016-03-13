@@ -67,11 +67,9 @@ public class Game {
         if (this.size() < 10) {
             System.out.println("Le nombre de jeux est incorrect: " + this.size());
             r = false;
-        } else if (this.getFrame(10) instanceof Strike && this.size() != 12) {
-            System.out.println("Il manque " + (12-this.size()) + " coups additionnels.");
-            r = false;
-        } else if (this.getFrame(10) instanceof Spare && this.size() != 11) {
-            System.out.println("Il manque 1 coup additionnel.");
+        } else if ((this.getFrame(10) instanceof Strike && this.size() != 12) ||
+                (this.getFrame(10) instanceof Spare && this.size() != 11)) {
+            System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
             r = false;
         }
         return r;
@@ -87,7 +85,7 @@ public class Game {
             if (i < this.size()) {
                 System.out.print(" | ");
             } else {
-                System.out.println();
+                System.out.println("\nScore : " + this.computeScore());
             }
         }
     }
@@ -115,7 +113,11 @@ public class Game {
      * @return
      */
     public int computeScore() {
+
         int score = 0;
+        if (!this.isValid()) {
+            return score;
+        }
 
         for (int i = 1; i <= 10; i++) {
             if (this.getFrame(i) instanceof Strike) {
@@ -164,7 +166,7 @@ public class Game {
     public boolean build(String sequence) {
 
         this.delete();
-        System.out.println("Vérification de la séquence");
+        System.out.println("Vérification de la séquence " + sequence);
 
         int numLance = 1;
         int lanceCourant = 0;
