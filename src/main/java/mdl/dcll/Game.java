@@ -77,7 +77,7 @@ public class Game {
 
 
     /**
-     * Affiche l'intégralité des jeux de la partie
+     * Affiche l'intégralité des jeux de la partie et le score
      */
     public void afficher() {
         for (int i = 1; i <= this.size(); i++) {
