@@ -5,38 +5,32 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Map;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
+public class AppTest
+        extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
-    {
-        super( testName );
+    public AppTest(String testName) {
+        super(testName);
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
+    public static Test suite() {
+        return new TestSuite(AppTest.class);
     }
 
     /**
      * Tests fonctionnels de création de partie à partire d'une séquence.
      */
-    public void testsFonctionnelsBuild()
-    {
+    public void testsFonctionnelsBuild() {
         // Séquences correctes
         String t1 = "XXXXXXXXXXXX";
         String t2 = "9_9_9_9_9_9_9_9_9_9_";
@@ -55,8 +49,7 @@ public class AppTest
     /**
      * Tests fonctionnels de calcule du score d'une partie à partir d'une séquence correcte.
      */
-    public void testsFonctionnelsScore()
-    {
+    public void testsFonctionnelsScore() {
         ArrayList<Couple> test = new ArrayList<Couple>();
 
         // Séquences/scores corrects
@@ -76,8 +69,7 @@ public class AppTest
     /**
      * Tests non fonctionnels de création de partie à partire d'une séquence.
      */
-    public void testsNonFonctionnelsBuild()
-    {
+    public void testsNonFonctionnelsBuild() {
         // Séquences fausses
         String t1 = "XXXXXXXXXXX";             // Manque un coup additionnel après un Strike frame 10
         String t2 = "9_9_9_9_9_9_9_9_9_9";     // Manque un coup à la frame 10

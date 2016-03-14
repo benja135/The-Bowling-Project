@@ -1,6 +1,6 @@
 package mdl.dcll.types;
 
-import mdl.dcll.types.Frame;
+import static mdl.dcll.types.Constantes.MAX_QUILLE;
 
 /**
  * Created by benja135 on 09/03/16.
@@ -18,12 +18,12 @@ public class CoupAdditionnel extends Frame {
         return c;
     }
 
-    public int score_c1() {
+    public int scoreC1() {
         return c;
     }
 
     public boolean isValid() {
-        return c >= 0 && c <= 10;
+        return c >= 0 && c <= MAX_QUILLE;
     }
 
     public String toString() {
