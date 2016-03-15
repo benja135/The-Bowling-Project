@@ -19,7 +19,7 @@ public class Strike extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public int score() {
+    public final int score() {
         return MAX_QUILLE;
     }
 
@@ -28,7 +28,7 @@ public class Strike extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public int scoreC1() {
+    public final int scoreC1() {
         return MAX_QUILLE;
     }
 
@@ -37,7 +37,7 @@ public class Strike extends Frame {
      *
      * @return true si le Strike est valide
      */
-    public boolean isValid() {
+    public final boolean isValid() {
         return true;
     }
 
@@ -46,7 +46,7 @@ public class Strike extends Frame {
      *
      * @return string représentant le Strike
      */
-    public String toString() {
+    public final String toString() {
         return "[Strike!]";
     }
 }

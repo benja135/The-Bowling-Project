@@ -28,7 +28,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return score du lancé
      */
-    public int score() {
+    public final int score() {
         return c;
     }
 
@@ -37,7 +37,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return score du lancé
      */
-    public int scoreC1() {
+    public final int scoreC1() {
         return c;
     }
 
@@ -46,7 +46,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return true si le coup est valide
      */
-    public boolean isValid() {
+    public final boolean isValid() {
         return c >= 0 && c <= MAX_QUILLE;
     }
 
@@ -55,7 +55,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return string représentant le CoupAdditionnel
      */
-    public String toString() {
+    public final String toString() {
         return "[Coup additionnel: " + c + "]";
     }
 

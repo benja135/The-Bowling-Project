@@ -1,7 +1,5 @@
 package mdl.dcll;
 
-import mdl.dcll.types.Spare;
-
 /**
  * The Bowling Project. Classe App.
  */

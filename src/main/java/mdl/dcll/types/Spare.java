@@ -28,7 +28,7 @@ public class Spare extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public int score() {
+    public final int score() {
         return MAX_QUILLE;
     }
 
@@ -37,7 +37,7 @@ public class Spare extends Frame {
      *
      * @return c, lancé1
      */
-    public int scoreC1() {
+    public final int scoreC1() {
         return c;
     }
 
@@ -46,7 +46,7 @@ public class Spare extends Frame {
      *
      * @return true si le spare est valide
      */
-    public boolean isValid() {
+    public final boolean isValid() {
         return c >= 0 && c < MAX_QUILLE;
     }
 
@@ -55,7 +55,7 @@ public class Spare extends Frame {
      *
      * @return string représentant le Spare
      */
-    public String toString() {
+    public final String toString() {
         return "[" + c + ":Spare]";
     }
 }
