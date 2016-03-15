@@ -6,11 +6,23 @@ package mdl.dcll.types;
  */
 public final class Constantes {
 
+    /**
+     * Constructeur privé pour empêcher l'instanciation.
+     */
     private Constantes() {
-        // rien, on empêche juste l'instanciation
+        // rien
     }
 
+    /**
+     * MAX_FRAME est le nombre de Frame d'une partie de Bowling.
+     * MAX_FRAME = 10 mais cette valeur peut normalement être modifié.
+     */
     public static final int MAX_FRAME = 10;
+
+    /**
+     * MAX_QUILLE est le nombre de quille à faire tomber.
+     * Cette valeur ne doit pas être modifié.
+     */
     public static final int MAX_QUILLE = 10;
 
 }

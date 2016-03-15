@@ -74,7 +74,7 @@ public class Game {
             r = false;
         } else if ((this.getFrame(MAX_FRAME) instanceof Strike && this.size() != MAX_FRAME + 2)
                 || (this.getFrame(MAX_FRAME) instanceof Spare && this.size() != MAX_FRAME + 1)) {
-            System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
+            System.out.println("Erreur, nombre de coups après le jeu " + MAX_FRAME + " invalides.");
             r = false;
         }
         return r;
@@ -226,7 +226,7 @@ public class Game {
                             return false;
                         }
                     } else {
-                        System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
+                        System.out.println("Erreur, nombre de coups après le jeu " + MAX_FRAME + " invalides.");
                         return false;
                     }
                     lanceCourant += 2;
@@ -241,7 +241,7 @@ public class Game {
                             return false;
                         }
                     } else {
-                        System.out.println("Erreur, nombre de coups après le jeu 10 invalides.");
+                        System.out.println("Erreur, nombre de coups après le jeu " + MAX_FRAME + " invalides.");
                         return false;
                     }
                     lanceCourant += 1;

@@ -8,14 +8,27 @@ import static mdl.dcll.types.Constantes.MAX_QUILLE;
  */
 public class Frame {
 
+    /**
+     * c1 et c2 pour coup 1 et coup 2.
+     * Car une frame classique est composé de 2 lancés.
+     */
     private int c1, c2;
 
+    /**
+     * Constructeur par défaut.
+     */
     public Frame() {
     }
 
-    public Frame(int c1, int c2) {
-        this.c1 = c1;
-        this.c2 = c2;
+    /**
+     * Constructeur d'une Frame.
+     *
+     * @param coup1 Coup 1
+     * @param coup2
+     */
+    public Frame(final int coup1, final int coup2) {
+        this.c1 = coup1;
+        this.c2 = coup2;
     }
 
     public int score() {
