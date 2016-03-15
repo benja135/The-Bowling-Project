@@ -1,4 +1,5 @@
 package mdl.dcll;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -24,7 +25,7 @@ public class TestStrike extends TestCase {
         return new TestSuite(TestStrike.class);
     }
 
-    public void testToString(){
+    public void testToString() {
         Strike s = new Strike();
         assertTrue("[Strike!]" == s.toString());
     }

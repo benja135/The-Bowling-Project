@@ -92,7 +92,7 @@ public class AppTest
     /**
      * test la validité d'un spare
      */
-    public void testValideSpare(){
+    public void testValideSpare() {
         Spare s = new Spare(9);
         assertTrue(s.isValid());
 
@@ -102,7 +102,7 @@ public class AppTest
     /**
      * test la non validité d'un spare
      */
-    public void testNonValideSpare(){
+    public void testNonValideSpare() {
         Spare s1 = new Spare(12);
         assertFalse(s1.isValid());
 
@@ -111,8 +111,7 @@ public class AppTest
     }
 
 
-
-    public void testMain(){
+    public void testMain() {
         App a = new App();
         String[] arg = new String[2];
         a.main(arg);

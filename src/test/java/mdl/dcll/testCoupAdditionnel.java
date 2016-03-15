@@ -25,9 +25,9 @@ public class testCoupAdditionnel extends TestCase {
         return new TestSuite(testCoupAdditionnel.class);
     }
 
-    public void testClasse(){
+    public void testClasse() {
         CoupAdditionnel c = new CoupAdditionnel(4);
-        int r =c.score();
+        int r = c.score();
 
         assertTrue(c.isValid());
         assertTrue(c.toString().equals("[Coup additionnel: 4]"));
@@ -41,7 +41,6 @@ public class testCoupAdditionnel extends TestCase {
         int y = c3.score();
         assertFalse(c3.isValid());
         c3.toString();
-
 
 
     }

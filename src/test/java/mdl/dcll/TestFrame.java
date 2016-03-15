@@ -26,24 +26,24 @@ public class TestFrame extends TestCase {
         return new TestSuite(TestFrame.class);
     }
 
-    public void testToString(){
-        Frame f = new Frame(2,3);
+    public void testToString() {
+        Frame f = new Frame(2, 3);
 
         assertTrue("[2:3]".equals(f.toString()));
 
     }
 
-    public void testScore(){
-        Frame f = new Frame(2,3);
+    public void testScore() {
+        Frame f = new Frame(2, 3);
 
         int r = f.scoreC1();
     }
 
-    public void testIsValid(){
-        Frame f = new Frame(2,3);
+    public void testIsValid() {
+        Frame f = new Frame(2, 3);
         f.isValid();
 
-        Frame f2 = new Frame(10,11);
+        Frame f2 = new Frame(10, 11);
         f2.isValid();
     }
 
