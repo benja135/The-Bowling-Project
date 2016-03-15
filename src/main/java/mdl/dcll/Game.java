@@ -143,7 +143,7 @@ public class Game {
                 score += this.getFrame(i).score() + this.scoreOfTheTwoNextStrokes(i);
             } else if (this.getFrame(i) instanceof Spare) {
                 score += this.getFrame(i).score() + this.scoreOfTheNextStroke(i);
-            } else if (this.getFrame(i) instanceof Frame) {
+            } else { // instanceof Frame
                 score += this.getFrame(i).score();
             }
         }
@@ -161,7 +161,7 @@ public class Game {
         int score = 0;
         if (this.getFrame(fCourante + 1) instanceof Strike || this.getFrame(fCourante + 1) instanceof CoupAdditionnel) {
             score = scoreOfTheNextStroke(fCourante) + scoreOfTheNextStroke(fCourante + 1);
-        } else if (this.getFrame(fCourante + 1) instanceof Spare || this.getFrame(fCourante + 1) instanceof Frame) {
+        } else { // instanceof Strike ou instanceof Spare
             score = this.getFrame(fCourante + 1).score();
         }
         return score;

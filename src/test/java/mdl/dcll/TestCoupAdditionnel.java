@@ -8,13 +8,13 @@ import mdl.dcll.types.CoupAdditionnel;
 /**
  * Created by Matteo on 15/03/2016.
  */
-public class testCoupAdditionnel extends TestCase {
+public class TestCoupAdditionnel extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public testCoupAdditionnel(String testName) {
+    public TestCoupAdditionnel(String testName) {
         super(testName);
     }
 
@@ -22,7 +22,7 @@ public class testCoupAdditionnel extends TestCase {
      * @return the suite of tests being tested
      */
     public static Test suite() {
-        return new TestSuite(testCoupAdditionnel.class);
+        return new TestSuite(TestCoupAdditionnel.class);
     }
 
     public void testClasse() {
