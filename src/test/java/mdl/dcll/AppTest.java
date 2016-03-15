@@ -96,7 +96,7 @@ public class AppTest
         Spare s = new Spare(9);
         assertTrue(s.isValid());
 
-        s.toString(); //a modif
+        s.toString(); // TODO à modif
     }
 
     /**
@@ -112,9 +112,8 @@ public class AppTest
 
 
     public void testMain() {
-        App a = new App();
         String[] arg = new String[2];
-        a.main(arg);
+        App.main(arg);
     }
 
 

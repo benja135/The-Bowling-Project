@@ -5,6 +5,12 @@ package mdl.dcll;
  */
 public final class App {
 
+    /**
+     * App n'est pas instanciée.
+     */
+    private App() {
+        // rien
+    }
 
     /**
      * Méthode main.

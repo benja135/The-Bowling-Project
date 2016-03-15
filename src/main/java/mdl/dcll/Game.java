@@ -1,9 +1,10 @@
 package mdl.dcll;
 
-import mdl.dcll.types.CoupAdditionnel;
-import mdl.dcll.types.Frame;
+import mdl.dcll.types.Simple;
 import mdl.dcll.types.Spare;
+import mdl.dcll.types.Frame;
 import mdl.dcll.types.Strike;
+import mdl.dcll.types.CoupAdditionnel;
 
 import static mdl.dcll.types.Constantes.MAX_FRAME;
 
@@ -161,7 +162,7 @@ public class Game {
         int score;
         if (this.getFrame(fCourante + 1) instanceof Strike || this.getFrame(fCourante + 1) instanceof CoupAdditionnel) {
             score = scoreOfTheNextStroke(fCourante) + scoreOfTheNextStroke(fCourante + 1);
-        } else { // instanceof Strike ou instanceof Spare
+        } else { // instanceof Simple ou instanceof Spare
             score = this.getFrame(fCourante + 1).score();
         }
         return score;
@@ -216,7 +217,7 @@ public class Game {
                     if (lance == '/') {
                         this.addFrame(new Spare(toInt(sequence.charAt(lanceCourant - 1))));
                     } else {
-                        this.addFrame(new Frame(toInt(sequence.charAt(lanceCourant - 1)), toInt(lance)));
+                        this.addFrame(new Simple(toInt(sequence.charAt(lanceCourant - 1)), toInt(lance)));
                     }
                 } else {
                     System.out.println("Erreur, caractére " + lance + " inattendu.");

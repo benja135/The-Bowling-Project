@@ -6,7 +6,7 @@ import static mdl.dcll.types.Constantes.MAX_QUILLE;
  * Created by benja135 on 09/03/16.
  * Un Spare est une Frame où les quilles sont tombées au bout des deux coups.
  */
-public class Spare extends Frame {
+public final class Spare extends Frame {
 
     /**
      * c pour coup,
@@ -28,7 +28,7 @@ public class Spare extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public final int score() {
+    public int score() {
         return MAX_QUILLE;
     }
 
@@ -37,7 +37,7 @@ public class Spare extends Frame {
      *
      * @return c, lancé1
      */
-    public final int scoreC1() {
+    public int scoreC1() {
         return c;
     }
 
@@ -46,7 +46,7 @@ public class Spare extends Frame {
      *
      * @return true si le spare est valide
      */
-    public final boolean isValid() {
+    public boolean isValid() {
         return c >= 0 && c < MAX_QUILLE;
     }
 
@@ -55,7 +55,7 @@ public class Spare extends Frame {
      *
      * @return string représentant le Spare
      */
-    public final String toString() {
+    public String toString() {
         return "[" + c + ":Spare]";
     }
 }

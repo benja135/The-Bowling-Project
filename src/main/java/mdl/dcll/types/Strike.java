@@ -6,7 +6,7 @@ import static mdl.dcll.types.Constantes.MAX_QUILLE;
  * Created by benja135 on 09/03/16.
  * Un Strike est une Frame où toutes les quilles sont tombées en 1 coup.
  */
-public class Strike extends Frame {
+public final class Strike extends Frame {
 
     /**
      * Constructeur de stike.
@@ -19,7 +19,7 @@ public class Strike extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public final int score() {
+    public int score() {
         return MAX_QUILLE;
     }
 
@@ -28,7 +28,7 @@ public class Strike extends Frame {
      *
      * @return MAX_QUILLE
      */
-    public final int scoreC1() {
+    public int scoreC1() {
         return MAX_QUILLE;
     }
 
@@ -37,7 +37,7 @@ public class Strike extends Frame {
      *
      * @return true si le Strike est valide
      */
-    public final boolean isValid() {
+    public boolean isValid() {
         return true;
     }
 
@@ -46,7 +46,7 @@ public class Strike extends Frame {
      *
      * @return string représentant le Strike
      */
-    public final String toString() {
+    public String toString() {
         return "[Strike!]";
     }
 }

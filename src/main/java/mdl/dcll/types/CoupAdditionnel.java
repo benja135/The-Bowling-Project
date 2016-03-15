@@ -6,7 +6,7 @@ import static mdl.dcll.types.Constantes.MAX_QUILLE;
  * Created by benja135 on 09/03/16.
  * Un CoupAdditionnel est le type de coup joué aprés la Frame 10
  */
-public class CoupAdditionnel extends Frame {
+public final class CoupAdditionnel extends Frame {
 
     /**
      * c pour coup,
@@ -28,7 +28,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return score du lancé
      */
-    public final int score() {
+    public int score() {
         return c;
     }
 
@@ -37,7 +37,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return score du lancé
      */
-    public final int scoreC1() {
+    public int scoreC1() {
         return c;
     }
 
@@ -46,7 +46,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return true si le coup est valide
      */
-    public final boolean isValid() {
+    public boolean isValid() {
         return c >= 0 && c <= MAX_QUILLE;
     }
 
@@ -55,7 +55,7 @@ public class CoupAdditionnel extends Frame {
      *
      * @return string représentant le CoupAdditionnel
      */
-    public final String toString() {
+    public String toString() {
         return "[Coup additionnel: " + c + "]";
     }
 
