@@ -3,10 +3,21 @@ package mdl.dcll;
 import mdl.dcll.types.Spare;
 
 /**
- * The Bowling Project
+ * The Bowling Project. Classe App.
  */
-public class App {
+public final class App {
 
+    /**
+     * Empêche l'instanciation de la classe App.
+     */
+    private App() {
+    }
+
+    /**
+     * Méthode main.
+     *
+     * @param args besoin de rien
+     */
     public static void main(final String[] args) {
         String resultat1 = "XXXXXXXXXXXX";            // 300
         String resultat2 = "9_9_9_9_9_9_9_9_9_9_";    // 90

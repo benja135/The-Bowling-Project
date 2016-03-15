@@ -8,6 +8,7 @@ import mdl.dcll.types.Strike;
 import static mdl.dcll.types.Constantes.MAX_FRAME;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by benja135 on 09/03/16.
@@ -15,23 +16,34 @@ import java.util.ArrayList;
  */
 public class Game {
 
+    /**
+     * ACCEPTED_CHARS_1 sont les caractéres acceptés lors du lancé 1 d'une Frame.
+     */
     private static final String ACCEPTED_CHARS_1 = "_123456789X";
-    private static final String ACCEPTED_CHARS_2 = ACCEPTED_CHARS_1 + "/";
-    private ArrayList<Frame> jeux;
 
     /**
-     * Constructeur, initilise la liste de jeux
+     * ACCEPTED_CHARS_2 sont les caractéres acceptés lors du lancé 2 d'une Frame.
+     */
+    private static final String ACCEPTED_CHARS_2 = ACCEPTED_CHARS_1 + "/";
+
+    /**
+     * Liste des Frames de la partie.
+     */
+    private List<Frame> jeux;
+
+    /**
+     * Constructeur, initilise la liste de jeux.
      */
     public Game() {
         jeux = new ArrayList<Frame>();
     }
 
     /**
-     * Ajoute un jeu dans la partie
+     * Ajoute un jeu dans la partie.
      *
-     * @param f
+     * @param f frame à ajouter
      */
-    private void addFrame(Frame f) {
+    private void addFrame(final Frame f) {
         if (jeux.size() >= MAX_FRAME && !(f instanceof CoupAdditionnel)) {
             System.out.println("Le jeu ajouté n'est pas un coup additionnel alors qu'il y a "
                     + "déjà " + jeux.size() + " jeux dans la partie, il ne sera pas ajouté.");
@@ -44,20 +56,20 @@ public class Game {
 
 
     /**
-     * Retourne le jeu i de la partie (i commence à 1)
+     * Retourne le jeu i de la partie (i commence à 1).
      *
-     * @param i
-     * @return
+     * @param i numéro de la frame voulue
+     * @return frame i
      */
-    private Frame getFrame(int i) {
+    private Frame getFrame(final int i) {
         return jeux.get(i - 1);
     }
 
 
     /**
-     * Retourne si la partie est oui ou non valide
+     * Retourne si la partie est oui ou non valide.
      *
-     * @return
+     * @return true si la partie est valide
      */
     public boolean isValid() {
         boolean r = true;
@@ -82,7 +94,7 @@ public class Game {
 
 
     /**
-     * Affiche l'intégralité des jeux de la partie et le score
+     * Affiche l'intégralité des jeux de la partie et le score.
      */
     public void afficher() {
         for (int i = 1; i <= this.size(); i++) {
@@ -97,9 +109,9 @@ public class Game {
 
 
     /**
-     * Retourne le nombre de jeux insérés dans la partie
+     * Retourne le nombre de jeux insérés dans la partie.
      *
-     * @return
+     * @return nombre de Frame dans la partie
      */
     public int size() {
         return jeux.size();
@@ -107,7 +119,7 @@ public class Game {
 
 
     /**
-     * Détruit tous les jeux de la partie
+     * Détruit tous les frames de la partie.
      */
     private void delete() {
         jeux.clear();
@@ -115,9 +127,9 @@ public class Game {
 
 
     /**
-     * Calcule le score totale de la partie
+     * Calcule le score total de la partie.
      *
-     * @return
+     * @return score total de la partie
      */
     public int computeScore() {
 
@@ -140,12 +152,12 @@ public class Game {
 
     /**
      * Calcule le score des deux prochains lancés par rapport à une Frame
-     * Sous fonction pour le calcul du score total de la partie
+     * Sous fonction pour le calcul du score total de la partie.
      *
-     * @param fCourante
-     * @return
+     * @param fCourante numéro de la frame courante
+     * @return score des 2 prochains coups
      */
-    private int scoreOfTheTwoNextStrokes(int fCourante) {
+    private int scoreOfTheTwoNextStrokes(final int fCourante) {
         int score = 0;
         if (this.getFrame(fCourante + 1) instanceof Strike || this.getFrame(fCourante + 1) instanceof CoupAdditionnel) {
             score = scoreOfTheNextStroke(fCourante) + scoreOfTheNextStroke(fCourante + 1);
@@ -157,23 +169,23 @@ public class Game {
 
     /**
      * Calcule le score du prochain lancé par rapport à une Frame
-     * Sous fonction pour le calcul du score total de la partie
+     * Sous fonction pour le calcul du score total de la partie.
      *
-     * @param fCourante
-     * @return
+     * @param fCourante numéro de la frame courante
+     * @return score du prochain coup
      */
-    private int scoreOfTheNextStroke(int fCourante) {
+    private int scoreOfTheNextStroke(final int fCourante) {
         return this.getFrame(fCourante + 1).scoreC1();
     }
 
     /**
      * Construit la partie en donnant la séquence sous forme de String
-     * et retourne si oui ou non la partie est valide
+     * et retourne si oui ou non la partie est valide.
      *
-     * @param sequence
-     * @return
+     * @param sequence chaîne de caractéres représentant la partie
+     * @return true si la chaîne est valide
      */
-    public boolean build(String sequence) {
+    public boolean build(final String sequence) {
 
         this.delete();
         System.out.println("Vérification de la séquence " + sequence);
@@ -261,12 +273,12 @@ public class Game {
 
 
     /**
-     * Converti un lancé en int (de 0 (_) à 10 (X))
+     * Converti un lancé en int (de 0 (_) à 10 (X)).
      *
-     * @param c
-     * @return
+     * @param c caractére correspondant au score d'un lancé
+     * @return entier correspondant au score
      */
-    private static int toInt(char c) {
+    private static int toInt(final char c) {
         int entier;
 
         if (c == '_') {
