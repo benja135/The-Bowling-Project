@@ -20,7 +20,7 @@ public class Frame {
     public Frame() {
     }
 
-    /**
+    /**d
      * Constructeur d'une Frame.
      *
      * @param coup1 Coup 1

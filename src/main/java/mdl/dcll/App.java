@@ -1,5 +1,7 @@
 package mdl.dcll;
 
+import mdl.dcll.types.Spare;
+
 /**
  * The Bowling Project
  */
@@ -27,6 +29,10 @@ public class App {
         System.out.println(game.build(resultat4));
         game.afficher();
         System.out.println();
+
+
     }
+
+
 
 }

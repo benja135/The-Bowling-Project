@@ -3,6 +3,9 @@ package mdl.dcll;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import mdl.dcll.types.Constantes;
+import mdl.dcll.types.Frame;
+import mdl.dcll.types.Spare;
 
 import java.util.ArrayList;
 
@@ -30,7 +33,7 @@ public class AppTest
     /**
      * Tests fonctionnels de création de partie à partire d'une séquence.
      */
-    public void testsFonctionnelsBuild() {
+    public void testsValideBuild() {
         // Séquences correctes
         String t1 = "XXXXXXXXXXXX";
         String t2 = "9_9_9_9_9_9_9_9_9_9_";
@@ -49,7 +52,7 @@ public class AppTest
     /**
      * Tests fonctionnels de calcule du score d'une partie à partir d'une séquence correcte.
      */
-    public void testsFonctionnelsScore() {
+    public void testsValidesScore() {
         ArrayList<Couple> test = new ArrayList<Couple>();
 
         // Séquences/scores corrects
@@ -69,7 +72,7 @@ public class AppTest
     /**
      * Tests non fonctionnels de création de partie à partire d'une séquence.
      */
-    public void testsNonFonctionnelsBuild() {
+    public void testsNonValidesBuild() {
         // Séquences fausses
         String t1 = "XXXXXXXXXXX";             // Manque un coup additionnel après un Strike frame 10
         String t2 = "9_9_9_9_9_9_9_9_9_9";     // Manque un coup à la frame 10
@@ -86,4 +89,37 @@ public class AppTest
         assertFalse(game.build(t5));
 
     }
+
+    /**
+     * test la validité d'un spare
+     */
+    public void testValideSpare(){
+        Spare s = new Spare(9);
+        assertTrue(s.isValid());
+
+        s.toString(); //a modif
+    }
+
+    /**
+     * test la non validité d'un spare
+     */
+    public void testNonValideSpare(){
+        Spare s1 = new Spare(12);
+        assertFalse(s1.isValid());
+
+        Spare s2 = new Spare(-2);
+        assertFalse(s2.isValid());
+    }
+
+    public void testConstante(){
+        Constantes c;
+    }
+
+    public void testMain(){
+        App a = new App();
+        String[] arg = new String[2];
+        a.main(arg);
+    }
+
+
 }
