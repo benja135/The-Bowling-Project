@@ -7,11 +7,7 @@ import mdl.dcll.types.Spare;
  */
 public final class App {
 
-    /**
-     * Empêche l'instanciation de la classe App.
-     */
-    private App() {
-    }
+
 
     /**
      * Méthode main.

@@ -4,7 +4,6 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import mdl.dcll.types.Constantes;
-import mdl.dcll.types.Frame;
 import mdl.dcll.types.Spare;
 
 import java.util.ArrayList;
@@ -111,9 +110,7 @@ public class AppTest
         assertFalse(s2.isValid());
     }
 
-    public void testConstante(){
-        Constantes c;
-    }
+
 
     public void testMain(){
         App a = new App();
