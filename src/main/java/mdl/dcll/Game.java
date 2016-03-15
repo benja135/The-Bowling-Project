@@ -158,7 +158,7 @@ public class Game {
      * @return score des 2 prochains coups
      */
     private int scoreOfTheTwoNextStrokes(final int fCourante) {
-        int score = 0;
+        int score;
         if (this.getFrame(fCourante + 1) instanceof Strike || this.getFrame(fCourante + 1) instanceof CoupAdditionnel) {
             score = scoreOfTheNextStroke(fCourante) + scoreOfTheNextStroke(fCourante + 1);
         } else { // instanceof Strike ou instanceof Spare

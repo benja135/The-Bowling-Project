@@ -6,7 +6,6 @@ package mdl.dcll;
 public final class App {
 
 
-
     /**
      * Méthode main.
      *
@@ -34,10 +33,7 @@ public final class App {
         System.out.println(game.build(resultat4));
         game.afficher();
         System.out.println();
-
-
     }
-
 
 
 }
