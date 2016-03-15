@@ -131,10 +131,6 @@ public class App
         return score;
 
 
-
-
-
-
     }
 
     public static void main( String[] args )
