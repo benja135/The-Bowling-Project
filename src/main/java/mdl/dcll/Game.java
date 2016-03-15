@@ -71,7 +71,7 @@ public class Game {
      *
      * @return true si la partie est valide
      */
-    public final boolean isValid() {
+    public boolean isValid() {
         boolean r = true;
 
         for (Frame f : jeux) {
@@ -96,7 +96,7 @@ public class Game {
     /**
      * Affiche l'intégralité des jeux de la partie et le score.
      */
-    public final void afficher() {
+    public void afficher() {
         for (int i = 1; i <= this.size(); i++) {
             System.out.print(this.getFrame(i).toString());
             if (i < this.size()) {
@@ -113,7 +113,7 @@ public class Game {
      *
      * @return nombre de Frame dans la partie
      */
-    public final int size() {
+    public int size() {
         return jeux.size();
     }
 
@@ -131,7 +131,7 @@ public class Game {
      *
      * @return score total de la partie
      */
-    public final int computeScore() {
+    public int computeScore() {
 
         int score = 0;
         if (!this.isValid()) {
@@ -185,7 +185,7 @@ public class Game {
      * @param sequence chaîne de caractéres représentant la partie
      * @return true si la chaîne est valide
      */
-    public final boolean build(final String sequence) {
+    public boolean build(final String sequence) {
 
         this.delete();
         System.out.println("Vérification de la séquence " + sequence);
