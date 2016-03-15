@@ -8,22 +8,45 @@ import static mdl.dcll.types.Constantes.MAX_QUILLE;
  */
 public class Strike extends Frame {
 
+    /**
+     * Constructeur de stike.
+     */
     public Strike() {
     }
 
-    public int score() {
+    /**
+     * Retourne le score d'un Strike.
+     *
+     * @return MAX_QUILLE
+     */
+    public final int score() {
         return MAX_QUILLE;
     }
 
-    public int scoreC1() {
+    /**
+     * Retourne le score du premier lancé du Strike, càd MAX_QUILLE.
+     *
+     * @return MAX_QUILLE
+     */
+    public final int scoreC1() {
         return MAX_QUILLE;
     }
 
-    public boolean isValid() {
+    /**
+     * Retourne si oui ou non le Strike est valide.
+     *
+     * @return true si le Strike est valide
+     */
+    public final boolean isValid() {
         return true;
     }
 
-    public String toString() {
+    /**
+     * Retourne la représensation d'un Strike.
+     *
+     * @return string représentant le Strike
+     */
+    public final String toString() {
         return "[Strike!]";
     }
 }
